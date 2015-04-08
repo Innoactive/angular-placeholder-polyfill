@@ -83,6 +83,15 @@
                         if(el.hasClass(settings.cssClass)) el.removeClass(settings.cssClass)
                     }
                 });
+                
+                scope.$watch(attrs.placeholder, function(newVal, oldVal) {
+                   if (newVal !== oldVal) {
+                       placeholderText = newVal;
+                       if (el.val() === oldVal) {
+                           el.val(placeholderText);
+                       }
+                   } 
+                });
 
             }
         }]);

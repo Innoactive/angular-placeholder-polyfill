@@ -84,7 +84,9 @@
                     }
                 });
                 
-                scope.$watch(attrs.placeholder, function(newVal, oldVal) {
+                scope.$watch(function() {
+                    return attrs.placeholder;
+                }, function(newVal, oldVal) {
                    if (newVal !== oldVal) {
                        placeholderText = newVal;
                        if (el.val() === oldVal) {
@@ -92,7 +94,6 @@
                        }
                    } 
                 });
-
-            }
+            };
         }]);
 }());
